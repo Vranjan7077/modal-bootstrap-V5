@@ -1,0 +1,513 @@
+@import "./abstracts/constant";
+@import "./abstracts/mixins";
+@import "./abstracts/variable";
+
+@import "./base/typography";
+@import "./components/input";
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  @include mp;
+}
+
+.clickMe {
+  @include center;
+  margin: 10px;
+}
+
+.modal-dialog {
+  text-align: center;
+  overflow-y: initial !important;
+  .modal-content {
+    height: 498px;
+    border-radius: 33px !important;
+    border: none !important;
+    .modal-header {
+      background-color: $header-background-color;
+      color: white;
+      height: 77px !important;
+      border-top-left-radius: 33px !important;
+      border-top-right-radius: 33px !important;
+      &__image1 {
+        margin: 0 19px 0 0;
+        padding: 0px 5px 55px 10px;
+      }
+      &__title {
+        margin: 0;
+        padding: 0;
+        line-height: 0.37;
+        letter-spacing: normal;
+        font-size: 25px;
+        font-stretch: normal;
+        font-style: normal;
+      }
+      &__close {
+        color: white !important;
+        opacity: 1;
+      }
+    }
+    .modal-footer {
+      border-top: 0 !important;
+      &__addtocart-button {
+        width: 168px;
+        height: 40px;
+        border-radius: 4px;
+        border: 1px solid $addtocart-button !important;
+        background: transparent !important;
+        font-size: 15px;
+        text-align: center;
+        font-weight: 600;
+      }
+      .btn-primary {
+        color: $addtocart-button !important;
+      }
+    }
+  }
+}
+
+.modal-dialog ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-dialog ::-webkit-scrollbar-thumb {
+  background-color: #dec05b;
+  border-radius: 20px;
+}
+
+.modal-body {
+  height: 80vh;
+  overflow-y: auto !important;
+  padding: 0 !important;
+}
+
+.alert {
+  border-radius: 0 !important;
+  padding: 0 !important;
+  background-color: transparent;
+  border: none !important;
+}
+.alert-success {
+  background-color: $alert-success-background !important;
+  color: $alert-success;
+  font-weight: 600;
+  &__message {
+    display: flex;
+    align-items: center;
+    &__successicon {
+      margin-left: 20px;
+    }
+    &__successnote {
+      margin: 10px 20px 10px 10px;
+    }
+  }
+}
+
+.bottom-line {
+  border-bottom: 1px solid $bottomline-color;
+  height: 1px;
+  margin: 20px 30px 15px 25px;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cart-row {
+  align-items: center;
+  display: flex;
+  margin-top: 5px;
+  @include mp;
+  .cart-item {
+    margin: 0;
+    padding: 0;
+    &__image {
+      width: 69px;
+      height: 77px;
+    }
+    &__title {
+      color: $paintName;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.cart-colorSelector {
+  @include mp;
+  &__dropdown {
+    @include mp;
+    .btn-secondary {
+      background-color: transparent !important;
+      color: $add-color !important;
+      border-color: transparent !important;
+    }
+  }
+  &__addMorePaint {
+    @include mp;
+    .add {
+      color: $add-color !important;
+      cursor: pointer;
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.qty-container {
+  &__qty {
+    display: block;
+    height: 39px;
+    width: 85px;
+    position: relative;
+    border-radius: 4px;
+    margin-left: 5px;
+    margin-right: 5px;
+    &__amount {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      width: 25px;
+      font-size: 12px;
+      font-weight: 500;
+      margin: 0;
+    }
+    &__input {
+      display: flex;
+      text-align: center;
+      border: none;
+      margin: 0px;
+      height: 37px;
+      width: 45px;
+      font-weight: 500;
+    }
+  }
+}
+
+.cart-qty-minus,
+.cart-qty-plus {
+  border: none;
+  outline: none;
+  background: none;
+  align-items: center;
+  text-align: center;
+}
+
+.qty-input {
+  height: 38px;
+  width: 45px;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+input:focus {
+  outline: none;
+}
+
+.bgColor {
+  &--green {
+    border: solid 1px $quantity-box-color1;
+    color: $quantity-box-color1;
+    background-color: $quantity-box-bg-color1;
+  }
+  &--red {
+    border: solid 1px $quantity-box-color2;
+    color: $quantity-box-color2;
+    background-color: $quantity-box-bg-color2;
+  }
+  &--orange {
+    border: solid 1px $quantity-box-color3;
+    color: $quantity-box-color3;
+    background-color: $quantity-box-bg-color3;
+  }
+  &--blue {
+    border: solid 1px $quantity-box-color4;
+    color: $quantity-box-color4;
+    background-color: $quantity-box-bg-color4;
+  }
+  &--black {
+    border: solid 1px $quantity-box-color5;
+    color: $quantity-box-color5;
+    background-color: $quantity-box-bg-color4;
+  }
+}
+.colorInput {
+  &--green {
+    background-color: $quantity-box-bg-color1;
+    color: $quantity-box-color1;
+  }
+  &--red {
+    background-color: $quantity-box-bg-color2;
+    color: $quantity-box-color2;
+  }
+  &--orange {
+    background-color: $quantity-box-bg-color3;
+    color: $quantity-box-color3;
+  }
+  &--blue {
+    background-color: $quantity-box-bg-color4;
+    color: $quantity-box-color4;
+  }
+  &--black {
+    background-color: white;
+  }
+}
+.qtyMultiplier {
+  &--green {
+    color: $quantity-box-color1;
+    background-color: white;
+  }
+  &--red {
+    color: $quantity-box-color2;
+    background-color: white;
+  }
+  &--orange {
+    color: $quantity-box-color3;
+    background-color: white;
+  }
+  &--blue {
+    color: $quantity-box-color4;
+    background-color: white;
+  }
+  &--black {
+    background-color: white;
+  }
+}
+
+.cart-total {
+  margin-left: 80%;
+  &__title,
+  &__price {
+    color: $quantity-box-color5;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  &__price {
+    margin-left: 5px;
+  }
+}
+
+.spaceTabs {
+  margin-left: 418px;
+}
+
+// media queries
+
+@media only screen and (min-width: 320px) and (max-width: 424px) {
+  .modal-dialog {
+    .modal-content {
+      width: 355px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .modal-dialog {
+    .modal-content {
+      width: auto !important;
+      .modal-header {
+        height: 60px !important;
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px !important;
+        &__image1 {
+          margin: 0;
+          padding: 0 0 50px;
+          height: 110px;
+          width: 60px;
+        }
+        &__title {
+          font-size: 20px;
+        }
+      }
+      .modal-footer {
+        @include mp;
+        &__addtocart-button {
+          background: $addtocart-button !important;
+          width: 100%;
+          margin: 0 !important;
+          border-radius: 0 !important;
+        }
+        .btn-primary {
+          color: white !important;
+        }
+      }
+    }
+  }
+  .cart-total {
+    margin-left: 70%;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    &__title,
+    &__price {
+      font-size: 16px;
+    }
+  }
+  .qty-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    width: 300px !important;
+    margin: 10px !important;
+    margin-left: 20px !important;
+    margin-right: 40px !important;
+    &__qty {
+      margin-top: 12px !important;
+      width: 85px;
+    }
+  }
+  .cart-row {
+    .cart-item {
+      width: 100%;
+    }
+    .cart-colorSelector {
+      width: 100% !important;
+      margin-top: 12px !important;
+    }
+    .spaceTabs {
+      margin-left: 0px !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-dialog {
+    .modal-content {
+      border-top-left-radius: 15px !important;
+      border-top-right-radius: 15px !important;
+      border-bottom-left-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      .modal-header {
+        height: 60px !important;
+        border-top-left-radius: 15px !important;
+        border-top-right-radius: 15px !important;
+        &__image1 {
+          margin: 0;
+          padding: 0 0 50px;
+          height: 110px;
+          width: 60px;
+        }
+        &__title {
+          font-size: 20px;
+        }
+      }
+      .modal-footer {
+        @include mp;
+        &__addtocart-button {
+          background: $addtocart-button !important;
+          width: 100%;
+          margin: 0 !important;
+          border-radius: 0 !important;
+        }
+        .btn-primary {
+          color: white !important;
+        }
+      }
+    }
+  }
+  .cart-total {
+    margin-left: 45%;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    &__title,
+    &__price {
+      font-size: 15px;
+    }
+  }
+  .qty-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    width: 460px !important;
+    margin: 10px !important;
+    &__qty {
+      margin-top: 12px !important;
+      width: 110px;
+    }
+  }
+  .product-removal {
+    .remove-product {
+      margin-right: 230px !important;
+      margin-top: 15px;
+    }
+  }
+  .cart-row {
+    .cart-item {
+      width: 100%;
+    }
+  }
+  .cart-colorSelector {
+    width: 100% !important;
+    margin-top: 1px !important;
+  }
+  .spaceTabs {
+    margin-left: 0px !important;
+  }
+  .bottom-line {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cart-items {
+    @include mp;
+  }
+  .modal-dialog {
+    .modal-content {
+      .modal-header {
+        height: 60px !important;
+        border-top-left-radius: 33px !important;
+        border-top-right-radius: 33px !important;
+        &__image1 {
+          margin: 0;
+          padding: 0 0 50px;
+          height: 110px;
+          width: 60px;
+        }
+        &__title {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .cart-row {
+    padding: 12px !important;
+    .cart-item {
+      &__image {
+        width: 55px;
+        height: 65px;
+      }
+      &__title {
+        font-size: 14px;
+      }
+    }
+  }
+  .cart-colorSelector {
+    @include mp;
+    align-items: center !important;
+    &__dropdown {
+      .btn-secondary {
+        @include mp;
+        font-size: 15px;
+      }
+    }
+    &__addMorePaint {
+      .add {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+  .spaceTabs {
+    margin-left: 295px;
+  }
+  .qty-container {
+    @include mp;
+  }
+  .cart-qty-plus,
+  .cart-qty-minus {
+    @include mp;
+    align-items: center;
+  }
+}
