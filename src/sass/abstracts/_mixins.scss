@@ -7,3 +7,39 @@
   text-align: center !important;
   align-items: center !important;
 }
+
+@mixin mediaQueryFooterAddToCart {
+  background: $addtocart-button !important;
+  width: 100%;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+@mixin mediaQueryFooterBtnPrimary  {
+  color: white !important;
+}
+@mixin mediaQueryModalHeader {
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+
+@mixin mediaQueryModalHeaderImage {
+  margin: 0;
+  padding: 0 0 50px;
+  height: 110px;
+  width: 60px;
+}
+@mixin  mediaQueryModalHeaderTitle {
+  font-size: 20px;
+}
+@mixin mediaQueryCartColorSelector {
+  width: 100% !important;
+}
+@mixin mediaQueryCartRow {
+  width: 100% ;
+}
+@mixin mediaQueryQtyContainer {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin: 5px !important;
+}
+
